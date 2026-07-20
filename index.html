@@ -80,18 +80,18 @@
                 <div class="w-16 h-16 bg-gradient-to-tr from-brand-500 to-sky-400 rounded-2xl flex items-center justify-center text-white text-3xl shadow-lg mx-auto">
                     <i class="fa-solid fa-key animate-pulse"></i>
                 </div>
-                <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Kích Hoạt English Pro</h2>
-                <p class="text-xs text-slate-400 dark:text-slate-500 leading-relaxed max-w-xs mx-auto">Vui lòng nhập API Key Groq hợp lệ từ danh sách kích hoạt để mở khóa toàn bộ học trình thông minh.</p>
+                <h2 class="text-2xl font-black tracking-tight text-slate-900 dark:text-white">Kích Hoạt Hệ Thống</h2>
+                <p class="text-xs text-slate-400 dark:text-slate-500 leading-relaxed max-w-xs mx-auto">Vui lòng nhập Mã Kích Hoạt được cấp để mở khóa toàn bộ học trình tiếng Anh thông minh.</p>
             </div>
 
             <div class="space-y-4">
                 <div>
-                    <label class="block text-[11px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2">Nhập Groq API Key của bạn</label>
+                    <label class="block text-[11px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2">Mã Kích Hoạt Của Bạn</label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 dark:text-slate-500">
                             <i class="fa-solid fa-terminal text-sm"></i>
                         </div>
-                        <input type="password" id="input-groq-key" placeholder="gsk_..." class="block w-full pl-11 pr-12 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 font-mono text-sm transition">
+                        <input type="password" id="input-groq-key" placeholder="Nhập mã kích hoạt tại đây..." class="block w-full pl-11 pr-12 py-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 font-mono text-sm transition">
                         <button onclick="toggleKeyVisibility()" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition">
                             <i id="eye-icon" class="fa-solid fa-eye"></i>
                         </button>
@@ -100,13 +100,13 @@
 
                 <button onclick="handleLogin()" id="btn-login" class="w-full bg-gradient-to-r from-brand-600 to-sky-500 hover:from-brand-700 hover:to-sky-600 text-white font-black py-4 rounded-2xl shadow-lg shadow-brand-500/20 text-sm tracking-wide transition flex items-center justify-center space-x-2">
                     <i class="fa-solid fa-right-to-bracket"></i>
-                    <span>Đăng nhập kích hoạt</span>
+                    <span>Xác thực & Kết nối</span>
                 </button>
             </div>
 
             <div class="pt-4 border-t border-slate-100 dark:border-slate-800 text-center space-y-2">
-                <span class="text-[11px] font-semibold text-slate-400 dark:text-slate-500 block">Trạng thái xác thực</span>
-                <div id="login-status-msg" class="text-xs font-bold text-slate-400">Chờ nhập khóa kích hoạt...</div>
+                <span class="text-[11px] font-semibold text-slate-400 dark:text-slate-500 block">Trạng thái bảo mật</span>
+                <div id="login-status-msg" class="text-xs font-bold text-slate-400">Yêu cầu xác nhận khóa kích hoạt hệ thống...</div>
             </div>
         </div>
     </div>
@@ -202,7 +202,7 @@
                     </div>
                     <div class="space-y-2">
                         <h3 class="text-lg font-black text-slate-900 dark:text-white" id="loading-status">Đang phân tích chủ đề...</h3>
-                        <p class="text-slate-400 text-xs leading-relaxed max-w-xs mx-auto" id="loading-sub">Hệ thống đang gọi AI lựa chọn và thiết lập khóa học từ vựng thực tế tối ưu cho bạn. Vui lòng đợi trong giây lát.</p>
+                        <p class="text-slate-400 text-xs leading-relaxed max-w-xs mx-auto" id="loading-sub">Hệ thống đang gọi máy chủ học tập thiết lập khóa học từ vựng thực tế tối ưu cho bạn. Vui lòng chờ đợi trong giây lát.</p>
                     </div>
                 </div>
             </section>
@@ -287,7 +287,7 @@
                 <div class="flex justify-center pt-8 border-t border-slate-200 dark:border-slate-800">
                     <button onclick="fetchMoreVocab()" id="btn-more-vocab" class="bg-white dark:bg-slate-950 hover:bg-slate-50 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 font-extrabold px-6 py-3.5 rounded-2xl shadow-sm hover:shadow transition flex items-center space-x-2 text-sm">
                         <i class="fa-solid fa-circle-plus text-brand-500 animate-pulse"></i>
-                        <span>Tìm thêm từ vựng bằng AI</span>
+                        <span>Tìm thêm từ vựng bằng hệ thống</span>
                     </button>
                 </div>
             </section>
@@ -377,8 +377,10 @@
                     <!-- 2. Active Game screen -->
                     <canvas id="game-canvas" class="w-full h-full block"></canvas>
 
-                    <!-- Hearts indicators -->
+                    <!-- Hearts indicators (Starts with 5 hearts) -->
                     <div id="game-hearts-bar" class="absolute top-4 left-4 z-10 flex space-x-1.5">
+                        <i class="fa-solid fa-heart text-red-500 text-lg"></i>
+                        <i class="fa-solid fa-heart text-red-500 text-lg"></i>
                         <i class="fa-solid fa-heart text-red-500 text-lg"></i>
                         <i class="fa-solid fa-heart text-red-500 text-lg"></i>
                         <i class="fa-solid fa-heart text-red-500 text-lg"></i>
@@ -548,7 +550,7 @@
                     }
                     resolve({ db, auth, isFirebaseAvailable: true, user });
                 } catch (err) {
-                    console.warn("Lỗi thiết lập Firebase, chuyển sang chế độ dự phòng:", err);
+                    console.warn("Lỗi thiết lập hệ thống xác thực thiết bị, chuyển sang chế độ dự phòng:", err);
                     resolve({ db: null, auth: null, isFirebaseAvailable: false, user: null });
                 }
             } else {
@@ -566,7 +568,7 @@
     </script>
 
     <script>
-        const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
+        const AI_SERVICE_URL = "https://api.groq.com/openai/v1/chat/completions";
 
         // Global State variables
         let currentTopic = "";
@@ -582,7 +584,7 @@
         let gameActive = false;
         let gameScore = 0;
         let gameHiScore = parseInt(localStorage.getItem('ai_english_game_hiscore')) || 0;
-        let gameLives = 3;
+        let gameLives = 5; // Starting with 5 hearts
         let gameCanvas = null;
         let gameCtx = null;
         let gameStars = [];
@@ -606,7 +608,7 @@
         let currentFullDialogueIdx = -1;
         let activeFullDialogueLineIdx = 0;
 
-        // On document load checking API Keys
+        // On document load checking premium license session keys
         window.addEventListener('DOMContentLoaded', () => {
             // Read Dark Mode preferences from system
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -624,7 +626,7 @@
             setupGameInputListener();
 
             // Validate existing key session on startup
-            const savedKey = localStorage.getItem('groq_api_key');
+            const savedKey = localStorage.getItem('premium_license_key');
             if (savedKey) {
                 document.getElementById("auth-container").classList.add("hidden");
                 document.getElementById("app-container").classList.remove("hidden");
@@ -659,15 +661,15 @@
             const btn = document.getElementById("btn-login");
             if (isLoading) {
                 btn.setAttribute("disabled", "true");
-                btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Đang xác thực bảo mật...</span>`;
+                btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Đang kết nối bảo mật...</span>`;
             } else {
                 btn.removeAttribute("disabled");
-                btn.innerHTML = `<i class="fa-solid fa-right-to-bracket"></i> <span>Đăng nhập kích hoạt</span>`;
+                btn.innerHTML = `<i class="fa-solid fa-right-to-bracket"></i> <span>Xác thực & Kết nối</span>`;
             }
         }
 
-        // Extract Groq API keys from published CSV sheet link
-        function extractGroqKeys(csvText) {
+        // Extract authorized keys from published CSV sheet link without mentioning Google Sheets
+        function extractKeysFromCSV(csvText) {
             const regex = /gsk_[a-zA-Z0-9_]+/g;
             const matches = csvText.match(regex);
             if (matches && matches.length > 0) {
@@ -688,11 +690,11 @@
         }
 
         // Dynamically test multiple standard models to find one supported by this key
-        async function testGroqKey(key) {
+        async function testServiceConnection(key) {
             const modelsToTry = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "llama3-8b-8192"];
             for (const model of modelsToTry) {
                 try {
-                    const res = await fetch(GROQ_URL, {
+                    const res = await fetch(AI_SERVICE_URL, {
                         method: "POST",
                         headers: {
                             "Authorization": `Bearer ${key}`,
@@ -711,13 +713,13 @@
                         return { ok: true, model: model };
                     }
                     if (res.status === 401 || res.status === 403) {
-                        return { ok: false, error: "Xác thực không thành công (401/403)" };
+                        return { ok: false, error: "Xác thực khóa kích hoạt không thành công." };
                     }
                 } catch (e) {
-                    console.warn("Lỗi khi thử model " + model, e);
+                    console.warn("Lỗi kết nối máy chủ mô hình " + model, e);
                 }
             }
-            return { ok: false, error: "Không kết nối được với các mô hình Groq" };
+            return { ok: false, error: "Không thể kết nối đến máy chủ thông minh." };
         }
 
         // Extract raw JSON block out of string
@@ -734,44 +736,44 @@
         async function handleLogin() {
             const rawKey = document.getElementById("input-groq-key").value.trim();
             if (!rawKey) {
-                updateLoginStatus("Vui lòng nhập API Key để bắt đầu!", "text-rose-500");
+                updateLoginStatus("Vui lòng nhập Mã Kích Hoạt để bắt đầu!", "text-rose-500");
                 return;
             }
 
             setLoginLoading(true);
-            updateLoginStatus("Đang đồng bộ dữ liệu bảo mật...", "text-brand-500 animate-pulse");
+            updateLoginStatus("Đang đồng bộ dữ liệu hệ thống bảo mật...", "text-brand-500 animate-pulse");
 
             try {
-                // 1. Fetch authorized list from public Google Sheet CSV
-                const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vReGFrX5HednMC_4fE_ruLg5KLrUiZfzr0iE0rTh_hZjI9BlWPp6ewq551kL-onLq6B42QgcrYonhZd/pub?output=csv";
-                const sheetResponse = await fetch(sheetUrl);
-                if (!sheetResponse.ok) {
-                    throw new Error("Không thể đồng bộ dữ liệu bảo mật từ máy chủ.");
+                // 1. Fetch authorized list from security registry
+                const registryUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vReGFrX5HednMC_4fE_ruLg5KLrUiZfzr0iE0rTh_hZjI9BlWPp6ewq551kL-onLq6B42QgcrYonhZd/pub?output=csv";
+                const registryResponse = await fetch(registryUrl);
+                if (!registryResponse.ok) {
+                    throw new Error("Không thể liên kết dữ liệu hệ thống.");
                 }
 
-                const csvText = await sheetResponse.text();
-                const allowedKeys = extractGroqKeys(csvText);
+                const csvText = await registryResponse.text();
+                const allowedKeys = extractKeysFromCSV(csvText);
 
                 const isListed = allowedKeys.some(k => k === rawKey);
                 if (!isListed) {
-                    updateLoginStatus("API Key của bạn không có trên cơ sở dữ liệu hệ thống!", "text-rose-500");
+                    updateLoginStatus("Mã Kích Hoạt không tồn tại hoặc đã bị vô hiệu hóa!", "text-rose-500");
                     setLoginLoading(false);
                     return;
                 }
 
-                // 2. Validate Key connection and find working model against Groq service directly
-                updateLoginStatus("Xác minh khả năng xử lý của API Key...", "text-brand-500 animate-pulse");
-                const testResult = await testGroqKey(rawKey);
+                // 2. Validate Key connection and find working model against AI service directly
+                updateLoginStatus("Đang kiểm tra tính tương thích thiết bị...", "text-brand-500 animate-pulse");
+                const testResult = await testServiceConnection(rawKey);
                 if (!testResult.ok) {
-                    updateLoginStatus(testResult.error || "API Key không hoạt động hoặc hết hạn!", "text-rose-500");
+                    updateLoginStatus(testResult.error || "Mã kích hoạt không hoạt động hoặc đã hết hạn!", "text-rose-500");
                     setLoginLoading(false);
                     return;
                 }
 
-                localStorage.setItem('groq_working_model', testResult.model);
+                localStorage.setItem('learning_engine_model', testResult.model);
 
                 // 3. Multi-device tracking check (Limit to 2 using Firebase Cloud)
-                updateLoginStatus("Đang xác minh hạn mức thiết bị...", "text-brand-500 animate-pulse");
+                updateLoginStatus("Đang kiểm tra hạn mức thiết bị...", "text-brand-500 animate-pulse");
                 let deviceId = localStorage.getItem('ela_device_id');
                 if (!deviceId) {
                     deviceId = crypto.randomUUID();
@@ -801,7 +803,7 @@
 
                     if (!isThisDeviceAlreadyRegistered) {
                         if (currentKeyDevices.length >= 2) {
-                            updateLoginStatus("Khóa kích hoạt này đã đăng nhập tối đa 2 thiết bị!", "text-rose-500");
+                            updateLoginStatus("Khóa kích hoạt này đã đăng nhập vượt quá 2 thiết bị tối đa!", "text-rose-500");
                             setLoginLoading(false);
                             return;
                         } else {
@@ -814,9 +816,9 @@
                     }
                 }
 
-                localStorage.setItem('groq_api_key', rawKey);
+                localStorage.setItem('premium_license_key', rawKey);
                 
-                showToast("Kích hoạt bản quyền thành công!", '<i class="fa-solid fa-circle-check text-emerald-500"></i>');
+                showToast("Đã kích hoạt hệ thống thành công!", '<i class="fa-solid fa-circle-check text-emerald-500"></i>');
                 
                 document.getElementById("auth-container").classList.add("hidden");
                 document.getElementById("app-container").classList.remove("hidden");
@@ -824,20 +826,20 @@
 
             } catch (err) {
                 console.error(err);
-                updateLoginStatus("Xảy ra lỗi đăng nhập: " + err.message, "text-rose-500");
+                updateLoginStatus("Lỗi kết nối máy chủ bảo mật: " + err.message, "text-rose-500");
             } finally {
                 setLoginLoading(false);
             }
         }
 
-        // Logout account and clear current slot
+        // Logout account and clear current device registration slot
         async function logout() {
-            const activeKey = localStorage.getItem('groq_api_key');
+            const activeKey = localStorage.getItem('premium_license_key');
             const deviceId = localStorage.getItem('ela_device_id');
 
             if (activeKey && deviceId && window.isFirebaseAvailable && window.db) {
                 try {
-                    showToast("Đang thu hồi chứng nhận thiết bị...", '<i class="fa-solid fa-spinner animate-spin"></i>');
+                    showToast("Đang thu hồi chứng nhận liên kết thiết bị...", '<i class="fa-solid fa-spinner animate-spin"></i>');
                     const colRef = window.collection(window.db, 'artifacts', window.appId, 'public', 'data', 'devices');
                     const devicesSnapshot = await window.getDocs(colRef);
 
@@ -858,19 +860,19 @@
                 }
             }
 
-            localStorage.removeItem('groq_api_key');
-            localStorage.removeItem('groq_working_model');
+            localStorage.removeItem('premium_license_key');
+            localStorage.removeItem('learning_engine_model');
             
             document.getElementById("app-container").classList.add("hidden");
             document.getElementById("auth-container").classList.remove("hidden");
             
             document.getElementById("input-groq-key").value = "";
-            updateLoginStatus("Đã đăng xuất tài khoản. Slot thiết bị đã được thu hồi.", "text-amber-500");
+            updateLoginStatus("Đã ngắt kết nối an toàn. Trạng thái thiết bị đã giải phóng.", "text-amber-500");
         }
 
-        // Silent logout helper when API Key fails during session operations
+        // Silent logout helper when key fails during operations
         async function logoutSilently() {
-            const activeKey = localStorage.getItem('groq_api_key');
+            const activeKey = localStorage.getItem('premium_license_key');
             const deviceId = localStorage.getItem('ela_device_id');
 
             if (activeKey && deviceId && window.isFirebaseAvailable && window.db) {
@@ -889,29 +891,29 @@
                         await window.deleteDoc(docRef);
                     }
                 } catch (err) {
-                    console.warn("Lỗi giải phóng thiết bị khi logout âm thầm:", err);
+                    console.warn("Lỗi giải phóng kết nối thiết bị tự động:", err);
                 }
             }
 
-            localStorage.removeItem('groq_api_key');
-            localStorage.removeItem('groq_working_model');
+            localStorage.removeItem('premium_license_key');
+            localStorage.removeItem('learning_engine_model');
             document.getElementById("app-container").classList.add("hidden");
             document.getElementById("auth-container").classList.remove("hidden");
             document.getElementById("input-groq-key").value = "";
-            updateLoginStatus("Khóa kích hoạt không hoạt động hoặc đã bị thu hồi. Vui lòng kích hoạt lại với khóa mới.", "text-amber-500");
+            updateLoginStatus("Khóa kích hoạt không hoạt động hoặc đã bị hệ thống thu hồi. Vui lòng thử lại bằng mã hợp lệ.", "text-amber-500");
         }
 
-        // Main calling wrapper for Groq AI
-        async function callGroqAI(prompt, systemMsg = "You are a specialized assistant.", isJson = false) {
-            const userKey = localStorage.getItem('groq_api_key');
+        // Main calling wrapper for AI Engine
+        async function callAI(prompt, systemMsg = "You are a specialized assistant.", isJson = false) {
+            const userKey = localStorage.getItem('premium_license_key');
             if (!userKey) {
-                showToast("Không tìm thấy khoá kích hoạt hoạt động. Vui lòng đăng nhập lại.", '<i class="fa-solid fa-circle-exclamation text-rose-500"></i>');
+                showToast("Không tìm thấy thông tin đăng ký kích hoạt. Vui lòng mở khóa trước.", '<i class="fa-solid fa-circle-exclamation text-rose-500"></i>');
                 document.getElementById("app-container").classList.add("hidden");
                 document.getElementById("auth-container").classList.remove("hidden");
-                throw new Error("Missing API Key");
+                throw new Error("Missing Premium License Key");
             }
 
-            const modelName = localStorage.getItem('groq_working_model') || "llama-3.3-70b-versatile";
+            const modelName = localStorage.getItem('learning_engine_model') || "llama-3.3-70b-versatile";
 
             const payload = {
                 model: modelName,
@@ -927,7 +929,7 @@
             }
 
             try {
-                const response = await fetch(GROQ_URL, {
+                const response = await fetch(AI_SERVICE_URL, {
                     method: "POST",
                     headers: {
                         "Authorization": `Bearer ${userKey}`,
@@ -937,19 +939,19 @@
                 });
 
                 if (response.status === 401 || response.status === 403) {
-                    showToast("Khóa kích hoạt không hợp lệ hoặc đã bị vô hiệu hóa! Đang quay lại trang đăng nhập...", '<i class="fa-solid fa-circle-exclamation text-rose-500"></i>');
+                    showToast("Khóa bản quyền không hợp lệ hoặc đã hết hạn! Vui lòng kích hoạt lại...", '<i class="fa-solid fa-circle-exclamation text-rose-500"></i>');
                     await logoutSilently();
-                    throw new Error("API Key Invalid");
+                    throw new Error("License Key Invalid");
                 }
 
                 if (response.status === 429) {
-                    showToast("Hệ thống Groq đang quá tải hoặc khóa của bạn tạm thời hết hạn mức (Rate Limit). Vui lòng đợi 10 giây rồi thử lại!", '<i class="fa-solid fa-triangle-exclamation text-amber-500"></i>');
-                    throw new Error("Rate Limit Exceeded");
+                    showToast("Hệ thống xử lý đang quá tải. Vui lòng chờ 10 giây rồi thử lại!", '<i class="fa-solid fa-triangle-exclamation text-amber-500"></i>');
+                    throw new Error("System Traffic Limit Exceeded");
                 }
 
                 if (!response.ok) {
                     const errData = await response.json().catch(() => ({}));
-                    const errMsg = errData.error?.message || `Lỗi máy chủ Groq (Mã lỗi: ${response.status})`;
+                    const errMsg = errData.error?.message || `Lỗi máy chủ học tập (Mã lỗi: ${response.status})`;
                     showToast(errMsg, '<i class="fa-solid fa-circle-exclamation text-red-500"></i>');
                     throw new Error(errMsg);
                 }
@@ -957,7 +959,7 @@
                 const data = await response.json();
                 return data.choices[0].message.content;
             } catch (err) {
-                console.error("Groq AI Call Error:", err);
+                console.error("AI Service Execution Error:", err);
                 throw err;
             }
         }
@@ -1059,14 +1061,15 @@
             // Show UI indicators
             document.getElementById("loading-overlay").classList.remove("hidden");
             document.getElementById("btn-submit").setAttribute("disabled", "true");
-            document.getElementById("loading-status").innerText = "Hệ thống đang thiết kế giáo án...";
+            document.getElementById("loading-status").innerText = "Hệ thống đang chuẩn bị giáo trình...";
 
+            // Flexibly requests 15 to 25 highly practical words curated strictly to the topic context
             const prompt = `
                 You are a world-class ESL (English as a Second Language) professor. 
                 Task: Generate a high-quality curated English lesson based on the user topic: "${topicVal}".
                 
                 Requirements:
-                1. Select EXACTLY 30 highly practical, everyday conversational vocabulary words (no more, no less). These words MUST be extremely common and actively used in real-life spoken English for this specific topic. Do not include academic or overly formal terms.
+                1. Select a curated list of highly practical, everyday conversational vocabulary words (ranging from 15 to 25 words depending on the depth and scope of the topic). Choose words that are extremely common and actively used in real-life spoken English for this specific topic. Do not include academic or overly formal terms.
                 2. Provide each word, accurate international phonetic alphabet (IPA) guide, natural Vietnamese translation, and a simple practical conversational example sentence applying it.
                 3. Create 2 realistic everyday dialogue situations (comprising 4 to 6 lines of text each) applying the selected vocabulary dynamically.
                 
@@ -1095,7 +1098,7 @@
 
             try {
                 const systemMsg = "You are a specialized API that outputs strict, pure JSON conforming to schema requests.";
-                const content = await callGroqAI(prompt, systemMsg, true);
+                const content = await callAI(prompt, systemMsg, true);
                 const lessonData = JSON.parse(extractJSON(content));
 
                 // Set states
@@ -1111,12 +1114,12 @@
                 renderDialoguePage();
                 unlockNavigation();
                 
-                showToast(`Đã tải thành công giáo án gồm ${vocabList.length} từ vựng thực tế!`, '<i class="fa-solid fa-circle-check text-emerald-500"></i>');
+                showToast(`Đã tải thành công giáo án gồm ${vocabList.length} từ vựng chọn lọc!`, '<i class="fa-solid fa-circle-check text-emerald-500"></i>');
                 navigate("vocab");
 
             } catch (error) {
                 console.error(error);
-                showToast(error.message || "Lỗi liên kết hệ thống. Vui lòng thử lại sau vài giây.", '<i class="fa-solid fa-circle-exclamation text-red-500"></i>');
+                showToast(error.message || "Lỗi liên kết hệ thống học thuật. Vui lòng gửi lại yêu cầu.", '<i class="fa-solid fa-circle-exclamation text-red-500"></i>');
             } finally {
                 document.getElementById("loading-overlay").classList.add("hidden");
                 document.getElementById("btn-submit").removeAttribute("disabled");
@@ -1129,7 +1132,7 @@
 
             const btn = document.getElementById("btn-more-vocab");
             btn.setAttribute("disabled", "true");
-            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Đang tìm thêm từ vựng...</span>`;
+            btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Đang lọc thêm từ vựng...</span>`;
 
             const currentWords = vocabList.map(v => v.word).join(", ");
             const prompt = `
@@ -1146,7 +1149,7 @@
             `;
 
             try {
-                const content = await callGroqAI(prompt, "You are a specialized API that outputs strict, pure JSON.", true);
+                const content = await callAI(prompt, "You are a specialized API that outputs strict, pure JSON.", true);
                 const moreData = JSON.parse(extractJSON(content));
 
                 if (moreData.vocabularies && moreData.vocabularies.length > 0) {
@@ -1162,7 +1165,7 @@
                 showToast("Không tìm thêm được từ mới.", '<i class="fa-solid fa-circle-exclamation text-amber-500"></i>');
             } finally {
                 btn.removeAttribute("disabled");
-                btn.innerHTML = `<i class="fa-solid fa-circle-plus text-brand-500"></i> <span>Tìm thêm từ vựng bằng AI</span>`;
+                btn.innerHTML = `<i class="fa-solid fa-circle-plus text-brand-500"></i> <span>Tìm thêm từ vựng bằng hệ thống</span>`;
             }
         }
 
@@ -1190,7 +1193,7 @@
             `;
 
             try {
-                const content = await callGroqAI(prompt, "You are a specialized API that outputs strict, pure JSON.", true);
+                const content = await callAI(prompt, "You are a specialized API that outputs strict, pure JSON.", true);
                 const moreData = JSON.parse(extractJSON(content));
 
                 if (moreData.dialogue) {
@@ -1290,7 +1293,7 @@
             `;
 
             try {
-                const content = await callGroqAI(prompt, "Translate cleanly to Vietnamese.");
+                const content = await callAI(prompt, "Translate cleanly to Vietnamese.");
                 el.innerText = content.trim().replace(/^"|"$/g, '');
             } catch (err) {
                 el.innerText = "Lỗi dịch nghĩa dịch câu.";
@@ -1571,6 +1574,7 @@
             }
         }
 
+        // Starts space shooter game with decreased spawn density and 5 lives
         function startGame() {
             if (vocabList.length === 0) {
                 showToast("Bạn cần học từ vựng trước khi chơi game nhé!", '<i class="fa-solid fa-circle-exclamation text-amber-500"></i>');
@@ -1581,7 +1585,7 @@
 
             gameActive = true;
             gameScore = 0;
-            gameLives = 3;
+            gameLives = 5; // Start with 5 lives
             gameSpeedMultiplier = 1.0;
             gameAsteroids = [];
             gameParticles = [];
@@ -1665,14 +1669,16 @@
             });
 
             gameSpawnTimer++;
-            let baseInterval = 180;
-            let minInterval = 100;
+            
+            // Decreased density (increased baseInterval and minInterval spawn clocks)
+            let baseInterval = 280; // Was 180 (Slower spawn frequency)
+            let minInterval = 180;  // Was 100
             if (gameDifficulty === 'easy') {
-                baseInterval = 260;
-                minInterval = 160;
+                baseInterval = 380; // Was 260
+                minInterval = 260;  // Was 160
             } else if (gameDifficulty === 'hard') {
-                baseInterval = 120;
-                minInterval = 50;
+                baseInterval = 180; // Was 120
+                minInterval = 100;  // Was 50
             }
             
             if (gameSpawnTimer > Math.max(baseInterval - gameScore * 1.5, minInterval)) {
@@ -1826,7 +1832,7 @@
                 word: targetItem.word,
                 translation: targetItem.translation,
                 hint: hintDisplay,
-                speed: (Math.random() * 0.15 + 0.15) * gameSpeedMultiplier * diffSpeedMultiplier, 
+                speed: (Math.random() * 0.12 + 0.12) * gameSpeedMultiplier * diffSpeedMultiplier, 
                 radius: 42,
                 rotation: 0,
                 rotSpeed: Math.random() * 0.02 - 0.01,
